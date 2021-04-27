@@ -1,8 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const { pool } = require('./config')
-const { request, response } = require('express')
 
 const app = express()
 
@@ -12,8 +10,8 @@ const app = express()
 require("dotenv-safe").config();
 const jwt = require('jsonwebtoken');
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded()); 
 app.use(cors())
 
 // importanto o controle de produtos
